@@ -240,15 +240,15 @@ public class DatabaseUtil {
 		Collection<EmbeddableType<?>> embeddables;
 
 		settings = new HashMap<String, String>();
-		settings.put("connection.driver_class", this.environment.getRequiredProperty("spring.datasource.driver-class-name"));
-		settings.put("dialect", this.environment.getRequiredProperty("spring.jpa.hibernate.dialect"));
+		settings.put("hibernate.dialect", this.environment.getRequiredProperty("spring.jpa.hibernate.dialect"));		
+		settings.put("hibernate.connection.driver_class", this.environment.getRequiredProperty("spring.datasource.driver-class-name"));
 		settings.put("hibernate.connection.url", this.environment.getRequiredProperty("spring.datasource.url"));
 		settings.put("hibernate.connection.username", this.environment.getRequiredProperty("spring.datasource.username"));
 		settings.put("hibernate.connection.password", this.environment.getRequiredProperty("spring.datasource.password"));
 		settings.put("hibernate.physical_naming_strategy", this.environment.getRequiredProperty("spring.jpa.hibernate.naming.physical-strategy"));
 		settings.put("hibernate.implicit_naming_strategy", this.environment.getRequiredProperty("spring.jpa.hibernate.naming.implicit-strategy"));
-		settings.put("show_sql", this.environment.getRequiredProperty("spring.jpa.hibernate.show-sql"));
-		settings.put("format_sql", this.environment.getRequiredProperty("spring.jpa.hibernate.format-sql"));
+		settings.put("hibernate.show_sql", this.environment.getRequiredProperty("spring.jpa.hibernate.show-sql"));
+		settings.put("hibernate.format_sql", this.environment.getRequiredProperty("spring.jpa.hibernate.format-sql"));
 		settings.put("hibernate.globally_quoted_identifiers", "true");
 
 		registryBuilder = new StandardServiceRegistryBuilder();
